@@ -26,11 +26,17 @@ func main() {
 	}
 }
 
-var dryRun = flag.Bool("dry-run", false, "dry run")
-var verbose = flag.Bool("verbose", false, "verbose")
+var dryRun = flag.Bool("dry-run", false, "don't actually write any files")
+var verbose = flag.Bool("verbose", false, "verbose logging")
+var probeSize = flag.Int("probe-size", 1024, "how much of each file to probe for encoding")
+var help = flag.Bool("help", false, "show help")
 
 func run() error {
 	flag.Parse()
+	if *help {
+		flag.Usage()
+		return nil
+	}
 	if *verbose {
 		log = slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
 			Level: slog.LevelDebug,
@@ -193,21 +199,24 @@ func isTextFile(path string) (isText bool, encoding string, err error) {
 		return
 	}
 	defer file.Close()
+	log.Debug("checking if file is text", "path", path)
 	return isTextFileReader(file)
 }
 
 func isTextFileReader(file io.Reader) (isText bool, encoding string, err error) {
 	detector.Reset()
 	var maxChunks = 20
-	var chunk = make([]byte, 1024)
+	var chunk = make([]byte, *probeSize)
 	var requiredConfidence = 0.95
 	for i := 0; i < maxChunks; i++ {
+		log.Debug("reading chunk", "chunk", i)
 		n, err := file.Read(chunk)
+		log.Debug("read chunk", "chunk", i, "n", n, "err", err)
 		if err == io.EOF {
 			if n == 0 {
 				break
 			}
-			fmt.Println("EOF w/ data read")
+			log.Debug("EOF w/ data read")
 			err = nil
 		}
 		if err != nil {

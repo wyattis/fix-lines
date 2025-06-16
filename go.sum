@@ -6,6 +6,8 @@ github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKs
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/wlynxg/chardet v1.0.0 h1:2gEgdmy/at4xIC+mOfNf1OFsb4LtnG9IcumfRXii/d0=
 github.com/wlynxg/chardet v1.0.0/go.mod h1:DgEUcneT6QieJ9qEhtRFOHWOjSNLPAo8lwUhjNopcFE=
+github.com/wlynxg/chardet v1.0.1 h1:xyN64+w82gH7K1oLBqV7G1a6quVCATWYMmBcwz4gghY=
+github.com/wlynxg/chardet v1.0.1/go.mod h1:HLQMNsa0w4MkH2e7waQaFD+Yh85riFFTLhFtP8fsdbQ=
 github.com/wyattis/z v0.12.9 h1:D7EagDrd/voKxFYsvHqliOtrjEYr6iKr8Q8ofwSFnQg=
 github.com/wyattis/z v0.12.9/go.mod h1:+1Wf06HqxHkLysogDupWqxXvAib08uxQrEtn5BA6eRE=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=

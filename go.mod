@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.10
 
 require (
-	github.com/wlynxg/chardet v1.0.0
+	github.com/wlynxg/chardet v1.0.1
 	github.com/wyattis/z v0.12.9
 )
 
